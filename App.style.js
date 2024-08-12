@@ -3,12 +3,11 @@ import { StyleSheet } from "react-native"
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#f9f9f9"
+        backgroundColor: "#f9f9f9",
+        padding: 15,
     },
     header: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     body : {
         flex: 5,
@@ -19,5 +18,5 @@ export const styles = StyleSheet.create({
     image: {
         width: 300,
         height: 100,
-      },
+    },
 })
