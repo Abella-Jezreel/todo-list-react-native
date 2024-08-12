@@ -4,7 +4,10 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#f9f9f9",
-        padding: 15,
+        padding: 10,
+    },
+    scrollView: {
+        flex: 1,
     },
     header: {
         flex: 1,
