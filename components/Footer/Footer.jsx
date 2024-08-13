@@ -14,13 +14,13 @@ const Footer = ({ tabs = ["All", "In Progress", "Done"], totalItems, totalInProg
 
   return (
     <View style={styles.container}>
-      {tabs.map((tab, index) => (
+      {tabs.map((tab) => (
         <TouchableOpacity
           key={tab}
           style={[styles.tab, selectedTab === tab && styles.selectedTab]}
           onPress={() => handleTabPress(tab)}
         >
-          <Text style={styles.tabText}>
+          <Text style={[styles.tabText, selectedTab === tab && styles.selectedTabText]}>
             {tab === "All" && `${tab} (${totalItems})`}
             {tab === "In Progress" && `${tab} (${totalInProgress})`}
             {tab === "Done" && `${tab} (${totalDone})`}

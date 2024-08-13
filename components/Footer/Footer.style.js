@@ -11,9 +11,13 @@ export const styles = StyleSheet.create({
     },
     selectedTab: {
       borderBottomWidth: 2,
-      borderBottomColor: 'blue',
+      borderBottomColor: '#2F76E5',
     },
     tabText: {
       fontSize: 16,
     },
+    selectedTabText: {
+        fontWeight: 'bold',
+        color: '#2F76E5',
+      },
   });
