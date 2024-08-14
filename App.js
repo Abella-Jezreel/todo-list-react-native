@@ -27,25 +27,25 @@ const TODO_LIST = [
   },
   {
     id: 3,
-    title: "Learn React Native with Redux",
+    title: "Learn React Native with Redux 1",
     description: "Learn React Native for mobile development",
     status: true,
   },
   {
     id: 4,
-    title: "Learn React Native with Redux",
+    title: "Learn React Native with Redux 2",
     description: "Learn React Native for mobile development",
     status: true,
   },
   {
     id: 5,
-    title: "Learn React Native with Redux",
+    title: "Learn React Native with Redux 3",
     description: "Learn React Native for mobile development",
     status: true,
   },
   {
     id: 6,
-    title: "Learn React Native with Redux",
+    title: "Learn React Native with Redux 4",
     description: "Learn React Native for mobile development",
     status: true,
   },
@@ -56,6 +56,18 @@ const App = () => {
   const [filteredTodoList, setFilteredTodoList] = useState(TODO_LIST);
   const [currentTab, setCurrentTab] = useState("All");
 
+  const filterTodoList = (tab, list) => {
+    switch (tab) {
+      case "In Progress":
+        return list.filter((todo) => !todo.status);
+      case "Done":
+        return list.filter((todo) => todo.status);
+      case "All":
+      default:
+        return list;
+    }
+  };
+  
   const onPres = (id) => {
     const newTodoList = todoList.map((todo) => {
       if (todo.id === id) {
@@ -66,31 +78,21 @@ const App = () => {
     setTodoList(newTodoList);
   
     // Reapply the current filter
-    let filteredList = [];
-    if (currentTab === "All") {
-      filteredList = newTodoList;
-    } else if (currentTab === "In Progress") {
-      filteredList = newTodoList.filter((todo) => !todo.status);
-    } else if (currentTab === "Done") {
-      filteredList = newTodoList.filter((todo) => todo.status);
-    }
-    setFilteredTodoList(filteredList);
+    setFilteredTodoList(filterTodoList(currentTab, newTodoList));
+  };
+  
+  const onDelete = (id) => {
+    const newTodoList = todoList.filter((todo) => todo.id !== id);
+    setTodoList(newTodoList);
+  
+    // Update the filtered list based on the current tab
+    setFilteredTodoList(filterTodoList(currentTab, newTodoList));
   };
   
   const handleTabPress = (tab) => {
     setCurrentTab(tab); // Store the current tab
-    let filteredList = [];
-    if (tab === "All") {
-      filteredList = todoList;
-    } else if (tab === "In Progress") {
-      filteredList = todoList.filter((todo) => !todo.status);
-    } else if (tab === "Done") {
-      filteredList = todoList.filter((todo) => todo.status);
-    }
-    setFilteredTodoList(filteredList);
-    console.log("Selected Tab:", tab);
+    setFilteredTodoList(filterTodoList(tab, todoList));
   };
-  
   const totalItems = todoList.length;
   const totalInProgress = todoList.filter((todo) => !todo.status).length;
   const totalDone = todoList.filter((todo) => todo.status).length;
@@ -104,7 +106,7 @@ const App = () => {
             <Header />
           </View>
           <View style={styles.body}>
-            <CardToDo todoItem={filteredTodoList} onPres={onPres} />
+            <CardToDo todoItem={filteredTodoList} onPres={onPres} onDelete={onDelete}/>
           </View>
         </SafeAreaView>
       </SafeAreaProvider>
