@@ -3,27 +3,28 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    bottom: 100,
-    right: 40,
+    bottom: 150,
+    right: 20,
     zIndex: 999,
   },
   button: {
-    backgroundColor: "#708bd4",
+    backgroundColor: "#aebde7",
     width: 160,
     height: 60,
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 5,
+    // shadowColor: "#000",
+    // shadowOffset: { width: 0, height: 2 },
+    // shadowOpacity: 0.8,
+    // shadowRadius: 2,
+    // elevation: 5,
   },
   buttonText: {
-    color: "white",
-    fontSize: 20,
+    color: "#265ce6",
+    fontSize: 18,
     lineHeight: 30,
+    fontWeight: "bold",
   },
 
   modalContainer: {
@@ -49,10 +50,23 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  buttonTextSave: {
+    color: "#265ce6",
+    fontSize: 18,
+    lineHeight: 30,
+    fontWeight: "bold",
+  },
+  buttonTextCancel: {
+    color: "#cf2020",
+    fontSize: 18,
+    lineHeight: 30,
+    fontWeight: "bold",
+  },
   textArea: {
     height: 100,
     textAlignVertical: 'top',
     borderColor: '#c5c7cc',
     borderRadius: 5,
+    backgroundColor: '#edf1f5',
   },
 });

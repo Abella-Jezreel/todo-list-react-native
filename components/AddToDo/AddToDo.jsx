@@ -6,7 +6,7 @@ const AddToDo = ({ onAdd }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={onAdd}>
-        <Text style={styles.buttonText}>New To Do +</Text>
+        <Text style={styles.buttonText}>+ New To Do</Text>
       </TouchableOpacity>
     </View>
   );

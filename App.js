@@ -8,54 +8,9 @@ import Footer from "./components/Footer/Footer";
 import AddToDo from "./components/AddToDo/AddToDo";
 import AddToDoForm from "./components/AddToDo/AddToDoForm";
 
-const TODO_LIST = [
-  {
-    id: 0,
-    title: "Learn React Native",
-    description: "Learn React Native for mobile development",
-    status: true,
-  },
-  {
-    id: 1,
-    title: "Learn React Native",
-    description: "Learn React Native for mobile development",
-    status: true,
-  },
-  {
-    id: 2,
-    title: "Learn React Native with GraphQL",
-    description: "Learn React Native for mobile development",
-    status: false,
-  },
-  {
-    id: 3,
-    title: "Learn React Native with Redux 1",
-    description: "Learn React Native for mobile development",
-    status: true,
-  },
-  {
-    id: 4,
-    title: "Learn React Native with Redux 2",
-    description: "Learn React Native for mobile development",
-    status: true,
-  },
-  {
-    id: 5,
-    title: "Learn React Native with Redux 3",
-    description: "Learn React Native for mobile development",
-    status: true,
-  },
-  {
-    id: 6,
-    title: "Learn React Native with Redux 4",
-    description: "Learn React Native for mobile development",
-    status: true,
-  },
-];
-
 const App = () => {
-  const [todoList, setTodoList] = useState(TODO_LIST);
-  const [filteredTodoList, setFilteredTodoList] = useState(TODO_LIST);
+  const [todoList, setTodoList] = useState([]);
+  const [filteredTodoList, setFilteredTodoList] = useState([]);
   const [currentTab, setCurrentTab] = useState("All");
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -110,7 +65,6 @@ const App = () => {
     setFilteredTodoList(filterTodoList(currentTab, newTodoList));
   };
 
-
   const openModal = () => {
     setIsModalVisible(true);
   };
@@ -147,7 +101,7 @@ const App = () => {
           totalDone={totalDone}
           onTabPress={handleTabPress}
         />
-        <AddToDo onAdd={openModal} />
+          <AddToDo onAdd={openModal} />
         <AddToDoForm
           visible={isModalVisible}
           onClose={closeModal}

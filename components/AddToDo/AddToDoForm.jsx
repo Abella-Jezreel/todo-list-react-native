@@ -30,7 +30,7 @@ const AddToDoForm = ({ visible, onClose, onSubmit }) => {
           />
           <View style={styles.buttonRow}>
             <Button title="Cancel" onPress={onClose} />
-            <Button title="Submit" onPress={handleSubmit} />
+            <Button title="Save" onPress={handleSubmit} />
           </View>
         </View>
       </View>
